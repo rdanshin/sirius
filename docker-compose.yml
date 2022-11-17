@@ -16,7 +16,7 @@ services:
       - PHP_ENABLE_XDEBUG=1
       - PHP_IDE_CONFIG=serverName=MyTestServer
     ports:
-      - '80:8080'
+      - '80:80'
     networks:
       - default
     depends_on:
@@ -25,10 +25,10 @@ services:
     image: mysql:5.7
     restart: always
     environment:
-      - MYSQL_DATABASE=sirius
-      - MYSQL_USER=sirius
-      - MYSQL_PASSWORD=sirius_password
-      - MYSQL_ROOT_PASSWORD=root_password
+      - MYSQL_DATABASE=my_database_name
+      - MYSQL_USER=my_user_name
+      - MYSQL_PASSWORD=my_user_password
+      - MYSQL_ROOT_PASSWORD=my_root_password
     ports:
       - '3306:3306'
     expose:
@@ -40,7 +40,7 @@ services:
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     ports:
-      - '8888:8080'
+      - '8888:80'
     environment:
       - PMA_ARBITRARY=1
       - PMA_HOST=db
